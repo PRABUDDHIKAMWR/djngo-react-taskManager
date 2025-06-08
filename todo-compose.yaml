@@ -30,6 +30,9 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=admin
       - POSTGRES_DB=database1
+    
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   adminer-ex:
     image: adminer
@@ -42,3 +45,7 @@ services:
       - ADMINER_DEFAULT_DB=database1
       - ADMINER_DEFAULT_USER=admin
       - ADMINER_DEFAULT_PASSWORD=password
+
+volumes:
+    postgres_data:
+      driver: local
